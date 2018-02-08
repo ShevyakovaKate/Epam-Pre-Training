@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int number = 4114;
+        int number = 6587;
         int a = 45;
         int b = 24;
 

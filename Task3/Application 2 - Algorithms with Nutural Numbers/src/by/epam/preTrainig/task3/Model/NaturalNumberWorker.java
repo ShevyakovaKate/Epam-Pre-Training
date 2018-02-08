@@ -28,12 +28,18 @@ public class NaturalNumberWorker {
     }
 
     public static boolean isPrime(int number) {
-        for (int i = 2; i < number; i++) {
-            if (number % i == 0) {
-                return false;
+        boolean result = true;
+        if (number % 2 == 0) {
+            result =  false;
+        } else {
+            int sqrtNumber = (int) Math.ceil(Math.sqrt(number));
+            for (int i = 3; i < sqrtNumber; i += 2) {
+                if (number % i == 0) {
+                    result = false;
+                }
             }
         }
-        return true;
+        return result;
     }
 
     public static String getPrimeDivisors(int number) {
