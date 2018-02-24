@@ -8,11 +8,11 @@ public class ModelWorker {
 
     public static boolean isPalindrome(String string) throws CrowdedStackException,EmptyContainerException {
         StackArrayStaticContainer<Character> stackString = new StackArrayStaticContainer<>(string.length());
-        for (int i = 0; i < stackString.size(); i--) {
+        for (int i = 0; i < string.length(); i++) {
             stackString.push(string.charAt(i));
         }
-        for (int i = 0; i < stackString.size(); i++) {
-            if(stackString.pop() != string.charAt(i)) {
+        for (int i = 0; i < string.length(); i++) {
+            if (stackString.pop() != string.charAt(i)) {
                 return false;
             }
         }

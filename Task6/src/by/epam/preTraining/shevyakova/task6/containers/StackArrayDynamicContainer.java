@@ -2,7 +2,7 @@ package by.epam.preTraining.shevyakova.task6.containers;
 
 import by.epam.preTraining.shevyakova.task6.exceptions.EmptyContainerException;
 
-public class StackArrayDynamicContainer<T> extends StackArrayContainer {
+public class StackArrayDynamicContainer<T> extends ArrayContainer implements Stack {
 
     public StackArrayDynamicContainer() {
         this.array = (T[]) new Object[10];
@@ -16,12 +16,24 @@ public class StackArrayDynamicContainer<T> extends StackArrayContainer {
         this.top = array.length;
     }
 
-    //copy constructor
+   public StackArrayDynamicContainer(StackArrayDynamicContainer stackArrayDynamicContainer) {
+        this.array = stackArrayDynamicContainer.array;
+        this.length = stackArrayDynamicContainer.length;
+        this.top = stackArrayDynamicContainer.top;
+   }
 
-    public void push(T element) {
-        if(top < length) {
-            top++;
+    public Object peek() throws EmptyContainerException {
+        if (top == 0) {
+            throw new EmptyContainerException("Stack is empty.");
+        }
+        return array[top - 1];
+    }
+
+    @Override
+    public void push(Object element) {
+        if(top <= length) {
             array[top] = element;
+            top++;
         } else {
             T[] temp = (T[]) array;
             length = length * 3 / 2;
@@ -29,17 +41,18 @@ public class StackArrayDynamicContainer<T> extends StackArrayContainer {
             for (int i = 0; i < temp.length; i++) {
                 array[i] = temp[i];
             }
-            top++;
             array[top] = element;
+            top++;
         }
     }
 
+    @Override
     public T pop() throws EmptyContainerException {
         if(top == 0) {
             throw new EmptyContainerException("Stack is empty.");
         } else {
             T[] temp = (T[]) array;
-            array[top] = null;
+            array[top - 1] = null;
             top--;
             return temp[temp.length];
         }
