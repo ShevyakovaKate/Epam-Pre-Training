@@ -1,36 +1,18 @@
-package by.epam.preTrainig.shevyakova.task5.entities;
+package by.epam.preTrainig.shevyakova.task5.model.entities;
 
 import java.util.Objects;
 
 public class CargoPlane extends Plane {
-    private String name;
-    private int carryingCapacity;
 
     public CargoPlane() {
-        this.name = "Unknown";
     }
 
     public CargoPlane(String name, int carryingCapacity) {
-        this.name = name;
-        this.carryingCapacity = carryingCapacity;
+        super(name, 0, carryingCapacity);
     }
 
     public CargoPlane(CargoPlane cargoPlane) {
-        this.name = cargoPlane.getName();
-        this.carryingCapacity = cargoPlane.getCarryingCapacity();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public int getCarryingCapacity() {
-        return carryingCapacity;
+        super(cargoPlane);
     }
 
     @Override

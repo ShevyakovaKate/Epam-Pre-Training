@@ -1,6 +1,6 @@
-package by.epam.preTrainig.shevyakova.task5.container;
+package by.epam.preTrainig.shevyakova.task5.model.container;
 
-import by.epam.preTrainig.shevyakova.task5.exceptions.TechnicalException;
+import by.epam.preTrainig.shevyakova.task5.exceptions.ArrayException;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -45,15 +45,15 @@ public class MyArray<T> {
         return array.length == 0;
     }
 
-    public T get(int index) throws TechnicalException {
+    public T get(int index) throws ArrayException {
         try {
             return array[index];
         } catch (IndexOutOfBoundsException e) {
-            throw new TechnicalException("Doesn't exist such index in array.", e);
+            throw new ArrayException("Doesn't exist such index in array.", e);
         }
     }
 
-    public void remove(int index) throws TechnicalException {
+    public void remove(int index) throws ArrayException {
         try {
             T[] temp = array;
             array = (T[]) new Object[temp.length - 1];
@@ -62,7 +62,7 @@ public class MyArray<T> {
             }
             length--;
         } catch (IndexOutOfBoundsException e) {
-            throw new TechnicalException("Doesn't exist such index in array", e);
+            throw new ArrayException("Doesn't exist such index in array", e);
         }
     }
 

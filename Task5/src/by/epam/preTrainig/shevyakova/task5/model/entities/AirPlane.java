@@ -1,36 +1,19 @@
-package by.epam.preTrainig.shevyakova.task5.entities;
+package by.epam.preTrainig.shevyakova.task5.model.entities;
 
 import java.util.Objects;
 
 public class AirPlane extends Plane {
-    private String name;
-    private int seatingCapacity;
+
 
     public AirPlane() {
-        this.name = "Unknown";
     }
 
     public AirPlane(String name, int seatingCapacity) {
-        this.name = name;
-        this.seatingCapacity = seatingCapacity;
+        super(name, seatingCapacity, 0);
     }
 
     public AirPlane(AirPlane airPlane) {
-        this.name = airPlane.getName();
-        this.seatingCapacity = airPlane.getSeatingCapacity();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public int getSeatingCapacity() {
-        return seatingCapacity;
+        super(airPlane);
     }
 
     @Override

@@ -1,36 +1,58 @@
 package by.epam.preTrainig.shevyakova.task5.util;
 
-import by.epam.preTrainig.shevyakova.task5.entities.AirPlane;
-import by.epam.preTrainig.shevyakova.task5.entities.CargoPlane;
+import by.epam.preTrainig.shevyakova.task5.model.entities.AirPlane;
+import by.epam.preTrainig.shevyakova.task5.model.entities.CargoPlane;
 import by.epam.preTrainig.shevyakova.task5.model.Aerodrome;
+import by.epam.preTrainig.shevyakova.task5.model.entities.Plane;
 
 import java.util.Random;
 import java.util.UUID;
 
 public class ObjectGenerator {
-
     private static final int MAX_AERODROME_SIZE = 50;
     private static final int MAX_SEATING_CAPACITY = 400;
     private static final int MIN_SEATING_CAPACITY = 10;
     private static final int MAX_CARRYING_CAPACITY = 10_000;
     private static final int MIN_CARRYING_CAPACITY = 1_000;
 
-    public static Aerodrome generateAerodrome() {
+    private static ObjectGenerator instance = new ObjectGenerator();
+
+    private ObjectGenerator() {
+    }
+
+    public static ObjectGenerator getInstance() {
+        return instance;
+    }
+
+    public Aerodrome generateAerodrome() {
         Aerodrome aerodrome = new Aerodrome();
         Random random = new Random();
         int aerodromeSize = random.nextInt(MAX_AERODROME_SIZE) + 1;
         for (int i = 0; i < aerodromeSize; i++) {
             if(random.nextBoolean()) {
-                aerodrome.addPlane(generateAirPlane());
+                aerodrome.addPlane(generatePlane(PlaneTypes.AIRPLANE));
             } else {
-                aerodrome.addPlane(generateCargoPlane());
+                aerodrome.addPlane(generatePlane(PlaneTypes.CARGOPLANE));
             }
         }
         return aerodrome;
     }
 
+    public Plane generatePlane(PlaneTypes planeType) {
+        Plane plane = null;
+        switch (planeType) {
+            case AIRPLANE:
+                plane = generateAirPlane();
+                break;
+            case CARGOPLANE:
+                plane = generateCargoPlane();
+                break;
+        }
+        return plane;
+    }
 
-    public static AirPlane generateAirPlane() {
+
+    private AirPlane generateAirPlane() {
         StringBuilder name = new StringBuilder("AirPlane№");
         UUID id = UUID.randomUUID();
         name.append(id);
@@ -39,7 +61,7 @@ public class ObjectGenerator {
         return new AirPlane(name.toString(), seatingCapacity);
     }
 
-    public static CargoPlane generateCargoPlane() {
+    private CargoPlane generateCargoPlane() {
         StringBuilder name = new StringBuilder("CargoPlane№");
         UUID id = UUID.randomUUID();
         name.append(id);
