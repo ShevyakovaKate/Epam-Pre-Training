@@ -1,4 +1,4 @@
-package by.epam.preTraining.shevyakova.task6.containers;
+package by.epam.preTraining.shevyakova.task6.containers.stack;
 
 import by.epam.preTraining.shevyakova.task6.exceptions.CrowdedStackException;
 import by.epam.preTraining.shevyakova.task6.exceptions.EmptyContainerException;

@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            ResultPrinter.print(ModelWorker.isPalindrome("987kjh"));
+            ResultPrinter.print(ModelWorker.isPalindrome("99999"));
         } catch (CrowdedStackException|EmptyContainerException e) {
             e.printStackTrace();
         }
