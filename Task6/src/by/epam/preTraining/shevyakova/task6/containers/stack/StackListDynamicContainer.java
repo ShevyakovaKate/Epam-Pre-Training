@@ -1,6 +1,6 @@
 package by.epam.preTraining.shevyakova.task6.containers.stack;
 
-import by.epam.preTraining.shevyakova.task6.exceptions.CrowdedStackException;
+import by.epam.preTraining.shevyakova.task6.exceptions.FullStackException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class StackListDynamicContainer<T> extends StackListContainer {
     }
 
     @Override
-    public void push(Object element) throws CrowdedStackException {
+    public void push(Object element) throws FullStackException {
         array.add(elementCount, element);
         elementCount++;
     }

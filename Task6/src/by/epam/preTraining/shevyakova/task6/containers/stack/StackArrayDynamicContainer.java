@@ -1,5 +1,7 @@
 package by.epam.preTraining.shevyakova.task6.containers.stack;
 
+import by.epam.preTraining.shevyakova.task6.exceptions.EmptyContainerException;
+
 public class StackArrayDynamicContainer<T> extends StackArrayContainer {
     private static final int DEFAULT_LENGTH = 10;
 

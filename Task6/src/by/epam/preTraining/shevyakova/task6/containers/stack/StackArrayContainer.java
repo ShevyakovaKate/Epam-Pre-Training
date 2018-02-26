@@ -1,13 +1,13 @@
 package by.epam.preTraining.shevyakova.task6.containers.stack;
 
 import by.epam.preTraining.shevyakova.task6.containers.ArrayContainer;
-import by.epam.preTraining.shevyakova.task6.exceptions.CrowdedStackException;
+import by.epam.preTraining.shevyakova.task6.exceptions.FullStackException;
 import by.epam.preTraining.shevyakova.task6.exceptions.EmptyContainerException;
 
 public abstract class StackArrayContainer<T> extends ArrayContainer implements Stack {
 
     @Override
-    public abstract void push(Object element) throws CrowdedStackException;
+    public abstract void push(Object element) throws FullStackException;
 
     @Override
     public Object peek() throws EmptyContainerException {
@@ -27,7 +27,5 @@ public abstract class StackArrayContainer<T> extends ArrayContainer implements S
             elementCount--;
             return element;
         }
-
     }
-
 }

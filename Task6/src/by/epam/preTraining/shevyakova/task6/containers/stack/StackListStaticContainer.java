@@ -1,15 +1,15 @@
 package by.epam.preTraining.shevyakova.task6.containers.stack;
 
-import by.epam.preTraining.shevyakova.task6.exceptions.CrowdedStackException;
+import by.epam.preTraining.shevyakova.task6.exceptions.FullStackException;
 
 import java.util.ArrayList;
 
 public class StackListStaticContainer<T> extends StackListContainer {
-    private static final int DEFAULT_ARRAY_LENGHT = 10;
+    private static final int DEFAULT_ARRAY_LENGTH = 10;
 
     public StackListStaticContainer() {
-        this.array = new ArrayList(DEFAULT_ARRAY_LENGHT);
-        this.length = DEFAULT_ARRAY_LENGHT;
+        this.array = new ArrayList(DEFAULT_ARRAY_LENGTH);
+        this.length = DEFAULT_ARRAY_LENGTH;
         this.elementCount = 0;
     }
 
@@ -26,9 +26,9 @@ public class StackListStaticContainer<T> extends StackListContainer {
     }
 
     @Override
-    public void push(Object element) throws CrowdedStackException {
+    public void push(Object element) throws FullStackException {
         if (isFull()) {
-            throw new CrowdedStackException("Stack is crowded.");
+            throw new FullStackException("Stack is crowded.");
         }
         array.add(elementCount, element);
         elementCount++;

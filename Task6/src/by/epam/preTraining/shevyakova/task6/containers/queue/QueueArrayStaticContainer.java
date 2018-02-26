@@ -1,6 +1,6 @@
 package by.epam.preTraining.shevyakova.task6.containers.queue;
 
-import by.epam.preTraining.shevyakova.task6.exceptions.CrowdedStackException;
+import by.epam.preTraining.shevyakova.task6.exceptions.FullStackException;
 
 public class QueueArrayStaticContainer<T> extends QueueArrayContainer {
     private static final int DEFAULT_ARRAY_LENGTH = 10;
@@ -24,9 +24,9 @@ public class QueueArrayStaticContainer<T> extends QueueArrayContainer {
     }
 
     @Override
-    public void enqueue(Object element) throws CrowdedStackException {
+    public void enqueue(Object element) throws FullStackException {
         if(isFull()) {
-            throw new CrowdedStackException("The queue is full.");
+            throw new FullStackException("The queue is full.");
         }
         array[elementCount] = element;
         elementCount++;

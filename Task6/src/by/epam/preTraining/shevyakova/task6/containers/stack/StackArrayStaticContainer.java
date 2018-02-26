@@ -1,13 +1,13 @@
 package by.epam.preTraining.shevyakova.task6.containers.stack;
 
-import by.epam.preTraining.shevyakova.task6.exceptions.CrowdedStackException;
+import by.epam.preTraining.shevyakova.task6.exceptions.FullStackException;
 
 public class StackArrayStaticContainer<T> extends StackArrayContainer {
-    private static final int DEFAULT_ARRAY_LENGHT = 10;
+    private static final int DEFAULT_ARRAY_LENGTH = 10;
 
     public StackArrayStaticContainer() {
-        this.array = (T[]) new Object[DEFAULT_ARRAY_LENGHT];
-        this.length = DEFAULT_ARRAY_LENGHT;
+        this.array = (T[]) new Object[DEFAULT_ARRAY_LENGTH];
+        this.length = DEFAULT_ARRAY_LENGTH;
         this.elementCount = 0;
     }
 
@@ -24,12 +24,11 @@ public class StackArrayStaticContainer<T> extends StackArrayContainer {
     }
 
     @Override
-    public void push(Object element) throws CrowdedStackException {
+    public void push(Object element) throws FullStackException {
         if(isFull()) {
-            throw new CrowdedStackException("The stack is full.");
+            throw new FullStackException("The stack is full.");
         }
         array[elementCount] = element;
         elementCount++;
     }
-
 }

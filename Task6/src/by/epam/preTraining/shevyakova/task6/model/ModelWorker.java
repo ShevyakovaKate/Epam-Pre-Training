@@ -1,12 +1,12 @@
 package by.epam.preTraining.shevyakova.task6.model;
 
 import by.epam.preTraining.shevyakova.task6.containers.stack.StackListStaticContainer;
-import by.epam.preTraining.shevyakova.task6.exceptions.CrowdedStackException;
+import by.epam.preTraining.shevyakova.task6.exceptions.FullStackException;
 import by.epam.preTraining.shevyakova.task6.exceptions.EmptyContainerException;
 
 public class ModelWorker {
 
-    public static boolean isPalindrome(String string) throws CrowdedStackException,EmptyContainerException {
+    public static boolean isPalindrome(String string) throws FullStackException,EmptyContainerException {
         int length = string.length();
         StackListStaticContainer<Character> stackString = new StackListStaticContainer<>(length);
         for (int i = 0; i < length; i++) {
