@@ -1,16 +1,18 @@
 package by.epam.preTraining.shevyakova.task6.containers.queue;
 
 import by.epam.preTraining.shevyakova.task6.containers.ListContainer;
+import by.epam.preTraining.shevyakova.task6.exceptions.EmptyElementException;
 import by.epam.preTraining.shevyakova.task6.exceptions.FullStackException;
 import by.epam.preTraining.shevyakova.task6.exceptions.EmptyContainerException;
+import by.epam.preTraining.shevyakova.task6.exceptions.IllegalIndexException;
 
 public abstract class QueueListContainer<T> extends ListContainer implements Queue {
 
     @Override
-    public abstract void enqueue(Object element) throws FullStackException;
+    public abstract void enqueue(Object element) throws FullStackException, IllegalIndexException, EmptyElementException;
 
     @Override
-    public Object peek() throws EmptyContainerException, FullStackException {
+    public Object peek() throws EmptyContainerException, IllegalIndexException, FullStackException {
         if(isEmpty()) {
             throw new EmptyContainerException("Queue is empty.");
         }
@@ -18,7 +20,7 @@ public abstract class QueueListContainer<T> extends ListContainer implements Que
     }
 
     @Override
-    public Object dequeue() throws EmptyContainerException {
+    public Object dequeue() throws EmptyContainerException, IllegalIndexException {
         if(isEmpty()) {
             throw new EmptyContainerException("Queue is empty.");
         }

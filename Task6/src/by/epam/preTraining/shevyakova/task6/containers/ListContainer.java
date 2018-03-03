@@ -1,6 +1,6 @@
 package by.epam.preTraining.shevyakova.task6.containers;
 
-import java.util.List;
+import by.epam.preTraining.shevyakova.task6.containers.list.List;
 
 public abstract class ListContainer<T> extends Container{
     protected List<T> array;

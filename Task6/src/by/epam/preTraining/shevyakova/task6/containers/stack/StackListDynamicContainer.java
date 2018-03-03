@@ -1,14 +1,15 @@
 package by.epam.preTraining.shevyakova.task6.containers.stack;
 
+import by.epam.preTraining.shevyakova.task6.exceptions.EmptyElementException;
 import by.epam.preTraining.shevyakova.task6.exceptions.FullStackException;
 
-import java.util.ArrayList;
-import java.util.List;
+import by.epam.preTraining.shevyakova.task6.containers.list.List;
+import by.epam.preTraining.shevyakova.task6.exceptions.IllegalIndexException;
 
 public class StackListDynamicContainer<T> extends StackListContainer {
 
     public StackListDynamicContainer() {
-        this.array = new ArrayList();
+        this.array = new List();
         this.elementCount = 0;
     }
 
@@ -23,8 +24,8 @@ public class StackListDynamicContainer<T> extends StackListContainer {
     }
 
     @Override
-    public void push(Object element) throws FullStackException {
-        array.add(elementCount, element);
+    public void push(Object element) throws EmptyElementException, IllegalIndexException {
+        array.add(element, elementCount);
         elementCount++;
     }
 
