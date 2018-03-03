@@ -17,17 +17,17 @@ public class Main {
             tree.add(7);
             tree.add(9);
             ResultPrinter.print("Size of  tree: " + tree.size());
-            ResultPrinter.print("Post-order: " + tree.traversePostOrder(tree.getHead()));
-            ResultPrinter.print("In-order: " + tree.traverseInOrder(tree.getHead()));
-            ResultPrinter.print("Pre-order: " + tree.traversePreOrder(tree.getHead()));
+            ResultPrinter.print("Post-order: " + tree.traversePostOrder(tree.getHead(),  new StringBuilder()));
+            ResultPrinter.print("In-order: " + tree.traverseInOrder(tree.getHead(),  new StringBuilder()));
+            ResultPrinter.print("Pre-order: " + tree.traversePreOrder(tree.getHead(), new StringBuilder()));
             ResultPrinter.print("Is contains 5: " + tree.contains(5));
             tree.remove(5);
-            ResultPrinter.print("Pre-order after deleting 5: " + tree.traversePreOrder(tree.getHead()));
+            ResultPrinter.print("Pre-order after deleting 5: " + tree.traversePreOrder(tree.getHead(), new StringBuilder()));
             ResultPrinter.print("Is contains 5 after deleting: " + tree.contains(5));
             tree.remove(4);
-            ResultPrinter.print("Pre-order after deleting 4: " + tree.traversePreOrder(tree.getHead()));
+            ResultPrinter.print("Pre-order after deleting 4: " + tree.traversePreOrder(tree.getHead(), new StringBuilder()));
             tree.remove(8);
-            ResultPrinter.print("Pre-order after deleting 8: " + tree.traversePreOrder(tree.getHead()));
+            ResultPrinter.print("Pre-order after deleting 8: " + tree.traversePreOrder(tree.getHead(), new StringBuilder()));
             tree.clear();
             ResultPrinter.print("Size of  tree after clearing: " + tree.size());
         } catch (NoSuchValueException e) {

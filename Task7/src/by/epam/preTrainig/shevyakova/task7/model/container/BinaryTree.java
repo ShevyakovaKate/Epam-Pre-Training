@@ -8,6 +8,22 @@ public class BinaryTree<T extends Comparable> {
     Node head;
     int nodeCount;
 
+    class Node<T extends Comparable> {
+        Node left;
+        Node right;
+        T value;
+
+        public Node(T value) {
+            this.value = value;
+            left = null;
+            right = null;
+        }
+
+        public int compareTo(Object o) {
+            return value.compareTo(o);
+        }
+    }
+
     public Node getHead() {
         return head;
     }
@@ -99,33 +115,30 @@ public class BinaryTree<T extends Comparable> {
         return nodeCount;
     }
 
-    public String traversePreOrder(Node node) {
-        StringBuilder result = new StringBuilder();
+    public String traversePreOrder(Node node, StringBuilder string) {
         if (node != null) {
-            result.append(node.value);
-            traversePreOrder(node.left);
-            traversePreOrder(node.right);
+            string.append(node.value);
+            traversePreOrder(node.left, string);
+            traversePreOrder(node.right, string);
         }
-        return result.toString();
+        return string.toString();
     }
 
-    public String traverseInOrder(Node node) {
-        StringBuilder result = new StringBuilder();
+    public String traverseInOrder(Node node, StringBuilder string) {
         if (node != null) {
-            traverseInOrder(node.left);
-            result.append(node.value);
-            traverseInOrder(node.right);
+            traverseInOrder(node.left, string);
+            string.append(node.value);
+            traverseInOrder(node.right, string);
         }
-        return result.toString();
+        return string.toString();
     }
 
-    public String traversePostOrder(Node node) {
-        StringBuilder result = new StringBuilder();
+    public String traversePostOrder(Node node, StringBuilder string) {
         if (node != null) {
-            traversePostOrder(node.left);
-            traversePostOrder(node.right);
-            result.append(node.value);
+            traversePostOrder(node.left, string);
+            traversePostOrder(node.right, string);
+            string.append(node.value);
         }
-        return result.toString();
+        return string.toString();
     }
 }
