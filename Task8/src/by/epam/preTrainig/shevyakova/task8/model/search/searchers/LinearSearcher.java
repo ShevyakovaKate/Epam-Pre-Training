@@ -1,4 +1,4 @@
-package by.epam.preTrainig.shevyakova.task8.model.research.searchers;
+package by.epam.preTrainig.shevyakova.task8.model.search.searchers;
 
 import by.epam.preTrainig.shevyakova.task8.model.container.MyArray;
 import by.epam.preTrainig.shevyakova.task8.model.exceptions.ArrayException;

@@ -1,8 +1,8 @@
-package by.epam.preTrainig.shevyakova.task8.model.research;
+package by.epam.preTrainig.shevyakova.task8.model.search;
 
 import by.epam.preTrainig.shevyakova.task8.model.container.MyArray;
 import by.epam.preTrainig.shevyakova.task8.model.exceptions.ArrayException;
-import by.epam.preTrainig.shevyakova.task8.model.research.searchers.Searchable;
+import by.epam.preTrainig.shevyakova.task8.model.search.searchers.Searchable;
 
 public class SearchManager<T extends Comparable> {
     private Searchable searchType;
